@@ -11,15 +11,15 @@ import {ListPage} from "../list/list";
     templateUrl: "build/pages/login/login.html",
 })
 export class LoginPage {
-    firebaseRef: Firebase;
-    isLoggedIn: boolean;
-    authData: any;
-    firebaseUrl: string;
+    firebaseRef:Firebase;
+    isLoggedIn:boolean;
+    authData:any;
+    firebaseUrl:string;
 
-    authDataProfileName: string;
-    authDataProfileLocation: string;
+    authDataProfileName:string;
+    authDataProfileLocation:string;
 
-    nav: NavController;
+    nav:NavController;
 
     constructor(public navCon:NavController) {
         this.nav = navCon;
