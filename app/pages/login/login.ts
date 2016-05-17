@@ -8,7 +8,7 @@ import {ListPage} from "../list/list";
  Ionic pages and navigation.
  */
 @Page({
-    templateUrl: 'build/pages/login/login.html',
+    templateUrl: "build/pages/login/login.html",
 })
 export class LoginPage {
     firebaseRef: Firebase;
