@@ -30,10 +30,10 @@ var ListPage = (function () {
     };
     ListPage = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/list/list.html'
+            templateUrl: 'build/pages/users/users.html'
         })
     ], ListPage);
     return ListPage;
 }());
 exports.ListPage = ListPage;
-//# sourceMappingURL=list.js.map
+//# sourceMappingURL=users.js.map

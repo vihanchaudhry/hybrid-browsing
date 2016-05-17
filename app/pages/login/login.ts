@@ -1,21 +1,15 @@
 import {Page, NavController} from "ionic-angular";
-import {ListPage} from "../list/list";
+import {UsersPage} from "../users/users";
 
-/*
- Generated class for the LoginPage page.
-
- See http://ionicframework.com/docs/v2/components/#navigation for more info on
- Ionic pages and navigation.
- */
 @Page({
     templateUrl: "build/pages/login/login.html",
 })
 export class LoginPage {
     firebaseRef:Firebase;
+    firebaseUrl:string;
     usersRef:Firebase;
     isLoggedIn:boolean;
     authData:any;
-    firebaseUrl:string;
 
     constructor(public nav:NavController) {
         this.firebaseUrl = "https://hybrid-browsing.firebaseio.com";
@@ -30,15 +24,16 @@ export class LoginPage {
 
                 this.isLoggedIn = true;
 
-                this.nav.push(ListPage);
+                this.nav.push(UsersPage);
             }
         });
     }
 
     addTwitterUser() {
         this.usersRef.child(this.authData.twitter.username).set({
+            username: this.authData.twitter.username,
             displayName: this.authData.twitter.displayName,
-            profileImageURL: this.authData.twitter.profileImageURL,
+            profileImageURL: this.authData.twitter.profileImageURL
         });
     }
 

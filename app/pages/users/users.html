@@ -1,0 +1,23 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Users</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="#user of users" (click)="itemTapped($event, user)">
+            <div class="user-image" item-left>
+                <img src={{user.profileImageURL}}>
+            </div>
+            {{user.displayName}}
+            <div class="user-username" item-right>
+                {{user.username}}
+            </div>
+        </button>
+    </ion-list>
+    <div *ngIf="selectedUser" padding>
+        You navigated here from <b>{{selectedUser.displayName}}</b>
+    </div>
+</ion-content>

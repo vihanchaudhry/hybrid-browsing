@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var ionic_angular_1 = require("ionic-angular");
 var ionic_native_1 = require("ionic-native");
 var getting_started_1 = require("./pages/getting-started/getting-started");
-var list_1 = require("./pages/list/list");
+var list_1 = require("./pages/users/users");
 var MyApp = (function () {
     function MyApp(app, platform) {
         this.app = app;
@@ -18,7 +18,7 @@ var MyApp = (function () {
         // used for an example of ngFor and navigation
         this.pages = [
             {title: 'Getting Started', component: getting_started_1.GettingStartedPage},
-            {title: 'List', component: list_1.ListPage}
+            {title: 'List', component: list_1.UsersPage}
         ];
     }
 
