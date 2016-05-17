@@ -19,9 +19,9 @@ export class UsersPage {
         this.usersRef = new Firebase(this.usersUrl);
         this.users = [];
         // Get the entire user database
-        this.usersRef.on("value", (snapshot:FirebaseDataSnapshot) => {
+        this.usersRef.on("value", (usersSnapshot:FirebaseDataSnapshot) => {
             // For each user in the database
-            snapshot.forEach((userSnapshot:FirebaseDataSnapshot) => {
+            usersSnapshot.forEach((userSnapshot:FirebaseDataSnapshot) => {
                 let user = userSnapshot.val();
                 if (user) {
                     // Push user on to an Array

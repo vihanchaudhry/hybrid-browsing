@@ -11,4 +11,5 @@ temp/
 Thumbs.db
 .idea/
 .vs/
+.vscode/
 *.user
