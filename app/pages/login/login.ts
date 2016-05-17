@@ -12,30 +12,33 @@ import {ListPage} from "../list/list";
 })
 export class LoginPage {
     firebaseRef:Firebase;
+    usersRef:Firebase;
     isLoggedIn:boolean;
     authData:any;
     firebaseUrl:string;
 
-    authDataProfileName:string;
-    authDataProfileLocation:string;
-
-    nav:NavController;
-
-    constructor(public navCon:NavController) {
-        this.nav = navCon;
+    constructor(public nav:NavController) {
         this.firebaseUrl = "https://hybrid-browsing.firebaseio.com";
         this.firebaseRef = new Firebase(this.firebaseUrl);
+        this.usersRef = this.firebaseRef.child("users");
         this.firebaseRef.onAuth((user) => {
             if (user) {
                 this.authData = user;
 
-                this.authDataProfileName = this.authData.twitter.displayName;
-                this.authDataProfileLocation = this.authData.twitter.cachedUserProfile.location;
+                if (this.authData.twitter)
+                    this.addTwitterUser();
 
                 this.isLoggedIn = true;
 
                 this.nav.push(ListPage);
             }
+        });
+    }
+
+    addTwitterUser() {
+        this.usersRef.child(this.authData.twitter.username).set({
+            displayName: this.authData.twitter.displayName,
+            profileImageURL: this.authData.twitter.profileImageURL,
         });
     }
 
